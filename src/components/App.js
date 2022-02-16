@@ -1,8 +1,10 @@
 import ProductList from './ProductList.js'
 import SearchBar from './SearchBar.js'
 import React from 'react';
+import {useSelector, useDispatch} from 'react-redux'
 
-const allProducts = [
+const allProducts = 
+[
         {
         name: 'product1',
         productCode: '1',
@@ -20,7 +22,8 @@ const allProducts = [
 
 function App() {
   const location = window.location;
-  const query = new URLSearchParams(location.search).get('q');
+  // const query = new URLSearchParams(location.search).get('q');
+  const query = useSelector((state) => state.queryReducer.query)
   console.log(`loading app`)
     return (
       <div className="App">
