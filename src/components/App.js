@@ -2,33 +2,27 @@ import ProductList from './ProductList.js'
 import SearchBar from './SearchBar.js'
 import React from 'react';
 import {useSelector, useDispatch} from 'react-redux'
+import { useQuery } from 'react-query';
 
-const allProducts = 
-[
-        {
-        name: 'product1',
-        productCode: '1',
-        numberAvailable: '1',
-        nextDelivery: new Date(2022, 2, 21),
-        productImage: 'https://via.placeholder.com/150'
-      },
-      {
-        name: 'product2',
-        productCode: '2',
-        numberAvailable: '2',
-        nextDelivery: new Date(2022, 2, 22),
-        productImage: 'https://via.placeholder.com/150'
-      }];
+// we get the data from the "server"
+const dataUrl = 'https://api.json-generator.com/templates/qkS_eTtsszAC/data?status=200&access_token=46wjmmpothb7d1flou9ex7u6cyweozowcj4b5d8o'
+
+const fetchProducts = async () => {
+    const res = await fetch(dataUrl);
+    return res.json();
+}
 
 function App() {
-  const location = window.location;
-  // const query = new URLSearchParams(location.search).get('q');
   const query = useSelector((state) => state.queryReducer.query)
-  console.log(`loading app`)
+  const {isLoading, error, data}= useQuery('products',fetchProducts);
+
+  if(isLoading) return `Loading...`;
+  if(error) return `An error has occured: ${error.message}`
+
     return (
       <div className="App">
         <SearchBar />
-        <ProductList allProducts={allProducts} query={query}/>
+        <ProductList allProducts={data} query={query}/>
       </div>
     );
 

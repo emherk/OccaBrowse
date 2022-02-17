@@ -24,7 +24,6 @@ class ProductList extends React.Component {
 
     };
     render() {
-        console.log(`loading product list with query ${this.props.query}`)
         const productsArray = this.props.allProducts;
         const query = this.props.query;
         const searchedProducts = this.filterMapProducts(productsArray, query)
