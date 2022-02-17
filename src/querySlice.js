@@ -9,7 +9,6 @@ export const querySlice = createSlice({
 
     reducers:{
         search: (state, action) => {
-            // immutability achieved through Immer
             state.query = action.payload;
         }
     },

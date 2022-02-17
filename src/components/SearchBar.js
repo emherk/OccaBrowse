@@ -2,15 +2,14 @@ import React from 'react';
 import {useSelector, useDispatch} from 'react-redux'
 import {search} from '../querySlice.js'
 
+/**
+ * The searchbar. Type to search among the list of products. 
+ * The search query is stored in the querySlice redux store slice.
+ * @returns A searchbar input field
+ */
 function SearchBar() {
-        // const storeText = (event) => {
-        //     const query = event.target.value;
-        //     console.log(query);
-        //     useDispatch(search(query));
-        // }
         const dispatch = useDispatch();
         return (
-            // <form action ="/" method="get">
             <div className="searchBar">
                 <input
                     type="text"
@@ -19,12 +18,10 @@ function SearchBar() {
                     arial-label= "Search name or product code"
                     onChange ={ (event) => {
                         const query = event.target.value;
-                        console.log(query);
                         dispatch(search(query));
                     }}
                 />
             </div>
-            // </form>
         );
 }
  
