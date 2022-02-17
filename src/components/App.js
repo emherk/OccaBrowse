@@ -1,7 +1,6 @@
 import ProductList from './ProductList.js'
 import SearchBar from './SearchBar.js'
 import React from 'react';
-import {useSelector, useDispatch} from 'react-redux'
 import { useQuery } from 'react-query';
 
 // we get the data from the "server"
@@ -13,7 +12,6 @@ const fetchProducts = async () => {
 }
 
 function App() {
-  const query = useSelector((state) => state.queryReducer.query)
   const {isLoading, error, data}= useQuery('products',fetchProducts);
 
   if(isLoading) return `Loading...`;
@@ -22,7 +20,7 @@ function App() {
     return (
       <div className="App">
         <SearchBar />
-        <ProductList allProducts={data} query={query}/>
+        <ProductList allProducts={data}/>
       </div>
     );
 
