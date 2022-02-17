@@ -16,7 +16,7 @@ function SearchBar() {
                     type="text"
                     id = "search-bar"
                     placeholder="Search name or product code"
-                    name = "q"
+                    arial-label= "Search name or product code"
                     onChange ={ (event) => {
                         const query = event.target.value;
                         console.log(query);
