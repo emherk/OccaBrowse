@@ -1,6 +1,6 @@
 import React from 'react';
-import {useSelector, useDispatch} from 'react-redux'
-import {search} from '../querySlice.js'
+import { useDispatch } from 'react-redux'
+import {search} from '../reduxElements/querySlice.js'
 
 /**
  * The searchbar. Type to search among the list of products. 

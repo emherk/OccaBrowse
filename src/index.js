@@ -2,9 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App';
-import store from './Store.js'
+import store from './reduxElements/Store.js'
 import {Provider} from 'react-redux';
 import {QueryClient, QueryClientProvider} from 'react-query'
+import { ReactQueryDevtools } from 'react-query/devtools'
 
 const queryClient = new QueryClient();
 ReactDOM.render(
@@ -12,6 +13,7 @@ ReactDOM.render(
     <Provider store={store}>
       <App />
     </Provider>
+       <ReactQueryDevtools initialIsOpen={true} />
   </QueryClientProvider>,
   document.getElementById('root')
 );

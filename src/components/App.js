@@ -1,29 +1,35 @@
+import React from 'react';
+import { useDispatch } from 'react-redux'
+
+import { addProducts } from '../reduxElements/productsSlice.js'
 import ProductList from './ProductList.js'
 import SearchBar from './SearchBar.js'
-import React from 'react';
-import { useQuery } from 'react-query';
+import { LoadProductsFromApi, LoadMockProducts } from '../fetchData.js'
 
-// we get the data from the "server"
-const dataUrl = 'https://api.json-generator.com/templates/qkS_eTtsszAC/data?status=200&access_token=46wjmmpothb7d1flou9ex7u6cyweozowcj4b5d8o'
 
-const fetchProducts = async () => {
-    const res = await fetch(dataUrl);
-    return res.json();
-}
-
+/**
+ * Gets the data form the server and stores it in the redux store.
+ * @returns 
+ */
 function App() {
-  const {isLoading, error, data}= useQuery('products',fetchProducts);
+  const dispatch = useDispatch();
+  let products = [];
+  try{
+    products = LoadMockProducts();
+  } catch(err){
+    return err.message;
+  }
+  dispatch(addProducts(products));
 
-  if(isLoading) return `Loading...`;
-  if(error) return `An error has occured: ${error.message}`
+  const errorMessage = LoadMockProducts();
+  if (errorMessage) return errorMessage;
 
-    return (
-      <div className="App">
-        <SearchBar />
-        <ProductList allProducts={data}/>
-      </div>
-    );
-
+  return (
+    <div className="App">
+      <SearchBar />
+      <ProductList />
+    </div>
+  )
 }
 
 export default App;

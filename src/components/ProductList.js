@@ -8,8 +8,8 @@ import {useSelector} from 'react-redux'
 function ProductList(props) {
     /**
      * Filters an array of product objects on the product name and productCode
-     * @param {Array} productsArray 
-     * @param {String} query 
+     * @param {Array} productsArray An array of product objects.
+     * @param {String} query The query to filter on.
      * @returns only the products which match the query
      */
     function filterProducts(productsArray, query) {
@@ -24,7 +24,7 @@ function ProductList(props) {
 
     /**
      * 
-     * @param {Array} productsArray 
+     * @param {Array} productsArray An array of product objects
      * @returns 
      */
     function mapProductsToComponents(productsArray) {
@@ -39,7 +39,8 @@ function ProductList(props) {
     }
 
     const query = useSelector((state) => state.queryReducer.query)
-    const productsArray = props.allProducts;
+    const productsArray = useSelector((state) => state.productsReducer.products);
+    console.log(`Products array in productslist.js ${productsArray}`);
     const searchedProducts = filterProducts(productsArray, query)
     const productComponents = mapProductsToComponents(searchedProducts);
 
