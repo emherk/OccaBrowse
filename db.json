@@ -27,34 +27,6 @@
     "numberAvailable": 78,
     "nextDelivery": "2022-05-05T11:07:30.170Z",
     "productImage": "https://via.placeholder.com/150"
-  },
-  {
-    "name": "Beer Foley",
-    "productCode": "620f98cddb98cb3381160cc4",
-    "numberAvailable": 25,
-    "nextDelivery": "2023-04-08T14:47:52.220Z",
-    "productImage": "https://via.placeholder.com/150"
-  },
-  {
-    "name": "Beer Alvarado",
-    "productCode": "620f98cd545ecfa814259d00",
-    "numberAvailable": 42,
-    "nextDelivery": "2023-05-06T02:43:09.588Z",
-    "productImage": "https://via.placeholder.com/150"
-  },
-  {
-    "name": "Beer Kramer",
-    "productCode": "620f98cdb4b8a6ea5fdbc16a",
-    "numberAvailable": 81,
-    "nextDelivery": "2022-06-22T03:39:10.634Z",
-    "productImage": "https://via.placeholder.com/150"
-  },
-  {
-    "name": "Beer Goodman",
-    "productCode": "620f98cd46cd5e5918c8bb20",
-    "numberAvailable": 63,
-    "nextDelivery": "2023-03-19T11:07:54.413Z",
-    "productImage": "https://via.placeholder.com/150"
   }
-]
+  ]
 }
