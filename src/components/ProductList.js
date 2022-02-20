@@ -1,56 +1,73 @@
 import React from 'react';
 import Product from './Product.js'
-import {useSelector} from 'react-redux'
+import { Link, Outlet } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 /**
  * This component takes care of filtering and displaying the products
  */
-function ProductList(props) {
+function ProductList() {
     /**
      * Filters an array of product objects on the product name and productCode
-     * @param {Array} productsArray An array of product objects.
+     * @param {Array} allProducts An array of product objects.
      * @param {String} query The query to filter on.
      * @returns only the products which match the query
      */
-    function filterProducts(productsArray, query) {
-        const filteredProducts= productsArray
-        .filter(product => 
-            query == null || 
-            product.name.toLowerCase().includes(query) || 
-            product.productCode.includes(query))
+    function filterProducts(allProducts, query) {
+        const filteredProducts = allProducts
+            .filter(product =>
+                query == null ||
+                product.name.toLowerCase().includes(query) ||
+                product.productCode.includes(query))
 
         return filteredProducts;
     }
 
     /**
      * 
-     * @param {Array} productsArray An array of product objects
+     * @param {Array} products An array of product objects
      * @returns 
      */
-    function mapProductsToComponents(productsArray) {
-        const componentProducts = productsArray.map(product =>{
+    function mapProductsToComponents(products) {
+        const componentProducts = products.map(product => {
             return (
-                <li key = {product.productCode}>
-                    <Product product = {product}/>
+                <li key={product.productCode}>
+                    <Product />
                 </li>
             )
         })
         return componentProducts;
     }
 
+    function mapProductsToLinks(products) {
+        const productLinks = products.map(product => (
+            <li key={product.productCode}>
+                <Link
+                    style={{ display: 'block', margin: '1rem 0' }}
+                    to={`/products/${product.productCode}`}
+                    key={product.productCode}
+                >
+                    {product.name}
+                </Link>
+            </li>
+        ))
+        return productLinks;
+
+    }
+
     const query = useSelector((state) => state.queryReducer.query)
-    const productsArray = useSelector((state) => state.productsReducer.products);
-    console.log(`Products array in productslist.js ${productsArray}`);
-    const searchedProducts = filterProducts(productsArray, query)
-    const productComponents = mapProductsToComponents(searchedProducts);
+    const products = useSelector((state) => state.productsReducer.products);
+    console.log(`Products array in productslist.js ${products}`);
+    const filteredProducts = filterProducts(products, query)
+    const productLinks = mapProductsToLinks(filteredProducts);
 
     return (
-    <div className="product-list">
-        <ul>
-            {productComponents}
-        </ul>
-    </div>
+        <div className="product-list">
+            <ul class="list-disc">
+                {productLinks}
+            </ul>
+        </div>
     )
 }
- 
+
 export default ProductList;

@@ -10,8 +10,11 @@ import {search} from '../reduxElements/querySlice.js'
 function SearchBar() {
         const dispatch = useDispatch();
         return (
-            <div className="searchBar">
+            <div className="self-center mt-5">
                 <input
+                    className="w-full h-xl
+                        rounded-lg
+                        border-4 border-solid border-orange-300"
                     type="text"
                     id = "search-bar"
                     placeholder="Search name or product code"

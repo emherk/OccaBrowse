@@ -1,5 +1,5 @@
 import { useQuery } from 'react-query';
-import { useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 
 import { addProducts } from './reduxElements/productsSlice.js'
 
@@ -16,6 +16,7 @@ const useProducts = () => useQuery('products', () =>
   ),
   { staleTime: 100000 }
 );
+
 
 /**
  * Fetches the data from the server using useQuery.
