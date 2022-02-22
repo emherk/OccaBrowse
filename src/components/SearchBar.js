@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import {search} from '../reduxElements/querySlice.js'
 
 /**
@@ -9,6 +9,7 @@ import {search} from '../reduxElements/querySlice.js'
  */
 function SearchBar() {
         const dispatch = useDispatch();
+        const stateQuery = useSelector((state) => state.queryReducer.query);
         return (
             <div className="self-center mt-5">
                 <input
@@ -17,7 +18,8 @@ function SearchBar() {
                         border-4 border-solid border-orange-300"
                     type="text"
                     id = "search-bar"
-                    placeholder="Search name or product code"
+                    placeholder={"Search name or product code"}
+                    value = {stateQuery || ""}
                     arial-label= "Search name or product code"
                     onChange ={ (event) => {
                         const query = event.target.value;

@@ -1,14 +1,11 @@
 import { useQuery } from 'react-query';
-import { useSelector, useDispatch } from 'react-redux'
 
-import { addProducts } from './reduxElements/productsSlice.js'
-
-// 'https://api.json-generator.com/templates/qkS_eTtsszAC/data?status=200&access_token=46wjmmpothb7d1flou9ex7u6cyweozowcj4b5d8o'
+// all generated data: 'https://api.json-generator.com/templates/qkS_eTtsszAC/data?status=200&access_token=46wjmmpothb7d1flou9ex7u6cyweozowcj4b5d8o'
 const PRODUCTS_API_URL = 'https://my-json-server.typicode.com/emherk/OccaBrowse/products';
 
 /**
- * Abstracting useQuery to a custom useProducts hook
- * @returns a reusable useProducts hook for fetching data.
+ * Reusable hook for fetching the data with useQuery.
+ * @returns 
  */
 const useProducts = () => useQuery('products', () =>
   fetch(PRODUCTS_API_URL).then(res =>
@@ -17,23 +14,11 @@ const useProducts = () => useQuery('products', () =>
   { staleTime: 100000 }
 );
 
-
-/**
- * Fetches the data from the server using useQuery.
- * @returns {String | Object} Either a message to be displayed or undefined if the products are added.
- */
-export function LoadProductsFromApi() {
-  const { isLoading, error, data } = useProducts();
-  if (isLoading) throw new Error('Loading...');
-  if (error) throw new Error(error.message);
-  return data;
-}
-
 /**
  * Loads a small subset of the products for development.
  * @returns {Array} undefined
  */
-export function LoadMockProducts() {
+export function loadMockProducts() {
   return [
     {
       "name": "Beer Cherry",
@@ -72,3 +57,5 @@ export function LoadMockProducts() {
     }
   ]
 }
+
+export {useProducts} 

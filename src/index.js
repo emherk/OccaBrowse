@@ -8,7 +8,6 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 
 import App from './components/App';
 import store from './reduxElements/Store.js'
-import ProductList from './components/ProductList';
 import Product from './components/Product'
 
 const queryClient = new QueryClient();
@@ -18,8 +17,7 @@ ReactDOM.render(
       <Provider store={store}>
         <Routes>
           <Route path="/" element={<Navigate replace to="/products" />} />
-          <Route path='products' element={ <App />} >
-          </Route>
+          <Route path='products' element={ <App />} />
           <Route path='products/:productCode' element={<Product />} />
           <Route
             path="*"

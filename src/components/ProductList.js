@@ -2,6 +2,7 @@ import React from 'react';
 import Product from './Product.js'
 import { Link, Outlet } from 'react-router-dom'
 import { useSelector } from 'react-redux'
+import { useProducts } from '../fetchData'
 
 /**
  * This component takes care of filtering and displaying the products
@@ -24,21 +25,10 @@ function ProductList() {
     }
 
     /**
-     * 
-     * @param {Array} products An array of product objects
+     * Maps products to links which lead to products/productCode
+     * @param {Array} products 
      * @returns 
      */
-    function mapProductsToComponents(products) {
-        const componentProducts = products.map(product => {
-            return (
-                <li key={product.productCode}>
-                    <Product />
-                </li>
-            )
-        })
-        return componentProducts;
-    }
-
     function mapProductsToLinks(products) {
         const productLinks = products.map(product => (
             <li key={product.productCode}>
@@ -56,13 +46,15 @@ function ProductList() {
     }
 
     const query = useSelector((state) => state.queryReducer.query)
-    const products = useSelector((state) => state.productsReducer.products);
-    console.log(`Products array in productslist.js ${products}`);
+    const {data: products} = useProducts();
+    // useSelector((state) => state.productsReducer.products);
+    console.log(`Products array in productslist.js`);
+    console.log(products)
     const filteredProducts = filterProducts(products, query)
     const productLinks = mapProductsToLinks(filteredProducts);
 
     return (
-        <div className="product-list">
+        <div class="product-list">
             <ul class="list-disc">
                 {productLinks}
             </ul>
