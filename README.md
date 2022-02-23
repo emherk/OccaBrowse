@@ -1,70 +1,43 @@
-# Getting Started with Create React App
+# OccaBrowse
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a React webapp for searching through a list of products.
 
-## Available Scripts
+Built using React, Redux, Tailwindcss, and React Query.
 
-In the project directory, you can run:
+## The Components
 
-### `npm start`
+### Search Bar
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+A text input, for the search query. The query is stored in the redux store. The query is updated live, while the user is typing.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Product List
 
-### `npm test`
+A list of products. By default our app redirects to /products, where this component is displayed.
+Initially, or while the search query is empty, it shows all products. Otherwise only the products which the query matches (on the product name or product code) are shown.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Products
 
-### `npm run build`
+Displays information about the specific product when navigated to /products/{productCode}.
+This includes the:
+- product name
+- number of available products left.
+- next delivery date.
+- productCode, displayed in barcode format.
+- a (placeholder) picture of the product
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The page also includes a back button to the /product page.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Header
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The *OccaBrowse* text and div at the top of the pages. Clicking the text takes us back to /products.
 
-### `npm run eject`
+### App
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Retrieves the data from the mock server, and wraps around the other components.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Future Improvements / Changes / Alternatives
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Expanding the test suite.
+- Possibly displaying more info about the products in the list.
+- Deploy on github pages.
+- The search could be done through the search parameters in the url instead of in the redux store.
