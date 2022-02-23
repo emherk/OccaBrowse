@@ -1,8 +1,9 @@
 import { useQuery } from "react-query";
 
-// all generated data: 'https://api.json-generator.com/templates/qkS_eTtsszAC/data?status=200&access_token=46wjmmpothb7d1flou9ex7u6cyweozowcj4b5d8o'
+// all generated data: https://api.json-generator.com/templates/qkS_eTtsszAC/data?status=200&access_token=46wjmmpothb7d1flou9ex7u6cyweozowcj4b5d8o
+// subset of data using json-server: https://my-json-server.typicode.com/emherk/OccaBrowse/products
 const PRODUCTS_API_URL =
-  "https://my-json-server.typicode.com/emherk/OccaBrowse/products";
+  "https://api.json-generator.com/templates/qkS_eTtsszAC/data?status=200&access_token=46wjmmpothb7d1flou9ex7u6cyweozowcj4b5d8o";
 
 /**
  * Reusable hook for fetching the data with useQuery.

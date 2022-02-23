@@ -32,7 +32,7 @@ function Product() {
           <h2 class="text-7xl">{product.name}</h2>
           <ul>
             <li class="mt-8">{product.numberAvailable} available</li>
-            <li>Next delivery on: {product.nextDelivery}</li>
+            <li>Next delivery on: {new Date(product.nextDelivery).toDateString()}</li>
             <li>
               <Barcode value={product.productCode} />
             </li>
