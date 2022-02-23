@@ -4,6 +4,10 @@ import Barcode from "react-barcode";
 import Header from "./Header.js";
 import { useProducts } from "../fetchData";
 
+/**
+ * The component for product pages. Displays info about the products.
+ * @returns the product page
+ */
 function Product() {
   const params = useParams();
   const { data } = useProducts();

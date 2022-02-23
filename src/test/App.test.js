@@ -1,14 +1,10 @@
-import { render, fireEvent, screen, waitFor } from "@testing-library/react";
+import { render,  screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { createMemoryHistory } from "history";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { Provider } from "react-redux";
 import {
   BrowserRouter,
-  Routes,
-  Route,
-  Router,
-  Navigate,
 } from "react-router-dom";
 import "@testing-library/jest-dom";
 import { rest } from "msw";
@@ -16,7 +12,6 @@ import { setupServer } from "msw/node";
 
 import App from "../components/App";
 import store from "../reduxElements/Store.js";
-import Product from "../components/Product";
 
 const queryClient = new QueryClient();
 

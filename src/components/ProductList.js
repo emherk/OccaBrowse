@@ -1,6 +1,5 @@
 import React from "react";
-import Product from "./Product.js";
-import { Link, Outlet } from "react-router-dom";
+import { Link} from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useProducts } from "../fetchData";
 

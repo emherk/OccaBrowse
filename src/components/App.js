@@ -7,11 +7,11 @@ import { useProducts } from "../fetchData.js";
 import Header from "./Header.js";
 
 /**
- * Gets the data form the server and stores it in the redux store.
- * @returns
+ * Loads the data and wraps around our main components.
+ * @returns the index page
  */
 function App() {
-  const { isLoading, error, data = [] } = useProducts();
+  const { isLoading, error} = useProducts();
   if (isLoading) return "Loading...";
   if (error) return error.message;
 
