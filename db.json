@@ -1,32 +1,32 @@
 {
   "products": [
-  {
-    "name": "Beer Malone",
-    "productCode": "620f98cd10e8c000c5786de7",
-    "numberAvailable": 70,
-    "nextDelivery": "2023-02-15T14:41:25.139Z",
-    "productImage": "https://via.placeholder.com/150"
-  },
-  {
-    "name": "Beer Gay",
-    "productCode": "620f98cdc477e5fb9f569c42",
-    "numberAvailable": 2,
-    "nextDelivery": "2022-08-28T12:36:34.927Z",
-    "productImage": "https://via.placeholder.com/150"
-  },
-  {
-    "name": "Beer Mullins",
-    "productCode": "620f98cd5bbd03e707b841eb",
-    "numberAvailable": 29,
-    "nextDelivery": "2022-03-26T19:48:57.502Z",
-    "productImage": "https://via.placeholder.com/150"
-  },
-  {
-    "name": "Beer Hendricks",
-    "productCode": "620f98cd633376755cafb0b7",
-    "numberAvailable": 78,
-    "nextDelivery": "2022-05-05T11:07:30.170Z",
-    "productImage": "https://via.placeholder.com/150"
-  }
+    {
+      "name": "Beer Malone",
+      "productCode": "620f98cd10e8c000c5786de7",
+      "numberAvailable": 70,
+      "nextDelivery": "2023-02-15T14:41:25.139Z",
+      "productImage": "https://via.placeholder.com/150"
+    },
+    {
+      "name": "Beer Gay",
+      "productCode": "620f98cdc477e5fb9f569c42",
+      "numberAvailable": 2,
+      "nextDelivery": "2022-08-28T12:36:34.927Z",
+      "productImage": "https://via.placeholder.com/150"
+    },
+    {
+      "name": "Beer Mullins",
+      "productCode": "620f98cd5bbd03e707b841eb",
+      "numberAvailable": 29,
+      "nextDelivery": "2022-03-26T19:48:57.502Z",
+      "productImage": "https://via.placeholder.com/150"
+    },
+    {
+      "name": "Beer Hendricks",
+      "productCode": "620f98cd633376755cafb0b7",
+      "numberAvailable": 78,
+      "nextDelivery": "2022-05-05T11:07:30.170Z",
+      "productImage": "https://via.placeholder.com/150"
+    }
   ]
 }
